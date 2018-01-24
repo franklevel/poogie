@@ -19,15 +19,33 @@
 */
 namespace Poogie { 
     public class Application : Granite.Application {
+        public MainWindow app_window;
+
         public Application () {
             Object (flags: ApplicationFlags.FLAGS_NONE,
             application_id: "com.github.franklevel.poogie");
         }
 
         construct {
-            app_icon = "com.github.franklevel.poogie";
+            //app_icon = "com.github.franklevel.poogie";
             exec_name = "com.github.franklevel.poogie";
             app_launcher = "com.github.franklevel.poogie";
+        }
+
+        protected override void activate () {
+            if (get_windows ().length () > 0) {
+                app_window.present ();
+                return;
+            }
+
+            app_window = new MainWindow (this);
+            app_window.show_all ();            
+
+        }
+
+        public static int main (string[] args) {
+            var app = new Poogie.Application ();
+            return app.run (args);
         }
     }
     

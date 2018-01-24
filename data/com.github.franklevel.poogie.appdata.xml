@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop">
+    <id>com.github.lainsce.coin.desktop</id>
+    <metadata_license>CC0</metadata_license>
+    <project_license>GPL-3.0+</project_license>
+    <name>Coin</name>
+    <summary>Never miss out on the monetary value of a virtual currency with this handy applet</summary>
+    <description>
+        <p>Track the virtual currencies in real world currency value with this handy applet</p>
+        <ul>
+            <li>Choose which currency and virtual currency to use for tracking</li>
+            <li>Quit anytime with the shortcut Ctrl + Q</li>
+            <li>Move the applet by dragging it from anywhere in the window</li>
+            <li>Stays out of your way in the desktop</li>
+        </ul>
+    </description>
+    <provides>
+        <binary>com.github.lainsce.coin</binary>
+    </provides>
+    <developer_name>Lains</developer_name>
+    <url type="homepage">https://github.com/franklevel/poogie/</url>
+    <url type="bugtracker">https://github.com/franklevel/poogie/issues</url>
+    <screenshots>
+        <screenshot type="default">
+            <image>https://raw.githubusercontent.com/franklevel/poogie/master/data/shot.png</image>
+        </screenshot>
+    </screenshots>
+    <releases>
+        <release version="1.2.0" date="2017-10-27">
+            <description>
+                <p>Release: Minor Payments</p>
+                <ul>
+                    <li>Minor fixes all around.</li>
+                </ul>
+            </description>
+        </release>
+        <release version="1.1.9" date="2017-10-20">
+            <description>
+                <p>Release: High Definition Money</p>
+                <ul>
+                    <li>Made the layout of the app more simple.</li>
+                    <li>Uses the full names of the coins &amp; currencies now.</li>
+                    <li>Adds support for high definition icons.</li>
+                </ul>
+            </description>
+        </release>
+        <release version="1.1.8" date="2017-10-13">
+            <description>
+                <p>Release: Reinjecting the Assets</p>
+                <ul>
+                    <li>Remembers the pair of currency &amp; coin that you chose.</li>
+                    <li>Minor fixes to make Coin more aesthetically appealing.</li>
+                </ul>
+            </description>
+        </release>
+        <release version="1.1.7" date="2017-09-17">
+            <description>
+                <p>Release: Olá, Brasil!</p>
+                <ul>
+                    <li>Add Brazilian Portuguese translations.</li>
+                </ul>
+            </description>
+        </release>
+        <release version="1.1.6" date="2017-09-17">
+            <description>
+                <p>Release: Style My Assets, Sir!</p>
+                <ul>
+                    <li>Use GResources to load the GTK CSS Styling</li>
+                </ul>
+            </description>
+        </release>
+        <release version="1.1.5" date="2017-09-07">
+            <description>
+                <p>Release: Money Makes The World Go Round</p>
+                <ul>
+                    <li>Enable Coin for translators</li>
+                    <li>Add XAR coin.</li>
+                    <li>Add South African Rand (ZAR).</li>
+                </ul>
+            </description>
+        </release>
+    </releases>
+    <custom>
+        <value key="x-appcenter-color-primary">#badbad</value>
+        <value key="x-appcenter-color-primary-text">#212121</value>
+    </custom>
+</component>

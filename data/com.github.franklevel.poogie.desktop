@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Poogie
+Comment=Generate secure password easier
+Exec=com.github.franklevel.poogie
+Icon=com.github.franklevel.poogie
+Keywords=Password;Secure;Hash;Strenght;
+Terminal=false
+Type=Application
+StartupNotify=true
+Categories=GTK;Utility;Office;
