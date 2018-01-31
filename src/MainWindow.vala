@@ -19,7 +19,7 @@
 */
 namespace Poogie { 
     public class MainWindow : Gtk.Dialog {
-        public Gtk.HeaderBar headerbar;
+        //public Gtk.HeaderBar headerbar;
         public Gtk.Label label_info;
         public Gtk.Stack stack;
         public Gtk.Label label_result;
@@ -31,7 +31,8 @@ namespace Poogie {
         public Gtk.RadioButton button_hackertype;
         public Gtk.Scale scale_size;
         public static int size = 8;
-        public static string charset = "alphanumeric"; 
+        public static string charset = "alphanumeric";
+        
 
         private void toggled (Gtk.ToggleButton button) {
             string option = button.label;
@@ -54,18 +55,23 @@ namespace Poogie {
 
         construct {
             
+            /*
             headerbar = new Gtk.HeaderBar ();
             headerbar.show_close_button = true;
             headerbar.set_title ("Poogie");
             headerbar.has_subtitle = false;
-            set_titlebar (headerbar);
-            /*
-            var provider = new Gtk.CssProvider ();
-            provider.load_from_resource ("/com/github/franklevel/poogie/stylesheet.css");
-            Gtk.StyleContext.add_provider_for_screen (Gdk.Screen.get_default (), provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
-            set_keep_below (true);
-            stick ();
+            set_titlebar (headerbar);  
             */
+            
+            var provider = new Gtk.CssProvider ();
+            try {
+                provider.load_from_path ("../data/stylesheet.css");
+                Gtk.StyleContext.add_provider_for_screen (Gdk.Screen.get_default (), provider, Gtk.STYLE_PROVIDER_PRIORITY_USER);
+            } catch (Error e){
+                stderr.printf("Error: %s\n", e.message);
+            }
+           
+            
             var grid = new Gtk.Grid ();
             grid.margin_top = 0;
             grid.column_homogeneous = true;
@@ -75,14 +81,15 @@ namespace Poogie {
             label_result = new Gtk.Label (MainWindow.generate());            
             label_result.hexpand = true;
             label_result.selectable = true;
-            label_result.set_width_chars (32);            
+            label_result.set_width_chars (32);
+            label_result.get_style_context().add_class("bigfont");
             
-            /* 
-            label_info = new Gtk.Label (_("<b>Select your options</b>"));
-            label_info.set_use_markup  (true);
-            label_info.hexpand = true;
-            */
+            // Copy to clipboard            
+            label_result.copy_clipboard.connect (() => {
+                stdout.printf("Label result was clicked!");
+            });
             
+                
             button_generate = new Gtk.Button.with_label (_("Generate"));      
             button_generate.hexpand = true;
 
@@ -126,15 +133,13 @@ namespace Poogie {
             grid.attach (scale_size, 1, 12, 3, 2);
             grid.attach (button_generate, 1, 14, 3, 2 );            
                    
-            
+            /* Stack */
             stack = new Gtk.Stack ();
             stack.transition_type = Gtk.StackTransitionType.CROSSFADE;
             stack.margin = 6;
             stack.margin_top = 0;
             stack.homogeneous = true;
-            stack.add_named (grid, "opciones");
-
-           
+            stack.add_named (grid, "options");
 
             ((Gtk.Container) get_content_area ()).add (stack);
             stack.show_all ();
@@ -146,10 +151,12 @@ namespace Poogie {
             
             // Scale
             scale_size.value_changed.connect (() => {
-                //this.show_result();
+                this.show_result();
                 MainWindow.size = (int) scale_size.get_value();
                 stdout.printf ("New size: %.0f\n", scale_size.get_value());
             });
+
+
         }
         
         public static string generate () {
