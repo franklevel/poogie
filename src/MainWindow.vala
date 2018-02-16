@@ -18,8 +18,7 @@
 *
 */
 namespace Poogie { 
-    public class MainWindow : Gtk.Dialog {
-        //public Gtk.HeaderBar headerbar;
+    public class MainWindow : Gtk.Window {
         public Gtk.Label label_info;
         public Gtk.Stack stack;
         public Gtk.Label label_result;
@@ -27,8 +26,7 @@ namespace Poogie {
         public Gtk.Box box_options;
         public Gtk.RadioButton button_numeric;
         public Gtk.RadioButton button_alphanumeric;
-        public Gtk.RadioButton button_special;
-        public Gtk.RadioButton button_hackertype;
+        public Gtk.RadioButton button_special;        
         public Gtk.Scale scale_size;
         public static int size = 8;
         public static string charset = "alphanumeric";
@@ -51,17 +49,12 @@ namespace Poogie {
                         border_width: 10,
                         window_position: Gtk.WindowPosition.CENTER
             );
+
         }
 
         construct {
             
-            /*
-            headerbar = new Gtk.HeaderBar ();
-            headerbar.show_close_button = true;
-            headerbar.set_title ("Poogie");
-            headerbar.has_subtitle = false;
-            set_titlebar (headerbar);  
-            */
+              
             
             var provider = new Gtk.CssProvider ();
             try {
@@ -102,16 +95,12 @@ namespace Poogie {
             button_special = new Gtk.RadioButton.with_label_from_widget (button_alphanumeric, _("Special"));
             button_special.toggled.connect (toggled);
     
-            button_hackertype = new Gtk.RadioButton.with_label_from_widget (button_alphanumeric, _("Hacker"));
-            button_hackertype.toggled.connect (toggled);
-    
            
             /* Box Options */
             box_options = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
             box_options.pack_start (button_alphanumeric, false , false, 0);
             box_options.pack_start (button_numeric, false , false, 0);
             box_options.pack_start (button_special, false , false, 0);
-            box_options.pack_start (button_hackertype, false , false, 0);
 
             /* Password Lenght */
             scale_size = new Gtk.Scale.with_range (Gtk.Orientation.HORIZONTAL, 8.0, 32.0, 1 );
@@ -141,8 +130,11 @@ namespace Poogie {
             stack.homogeneous = true;
             stack.add_named (grid, "options");
 
-            ((Gtk.Container) get_content_area ()).add (stack);
-            stack.show_all ();
+            //((Gtk.Container) get_content_area ()).add (stack);
+            //stack.show_all ();
+
+            this.add (stack);
+            this.show_all ();
 
             // Button generator    
             button_generate.clicked.connect (() => {
