@@ -1,12 +1,7 @@
-@define-color colorPrimary #badbad;
-@define-color textColorPrimary #113311;
-/*
-.titlebar,
-.background {
-    background-color: @colorPrimary;
-    border: none;
-    color: @textColorPrimary;
-}*/
+@define-color colorPrimary #5b9aff;
+@define-color textColorPrimary #1b2f4f;
 .bigfont{
-    font-size: 17px;     
+    font-size: 17px;
+    color: @textColorPrimary;
+    
 }
