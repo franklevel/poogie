@@ -1,17 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component type="desktop">
-    <id>com.github.franklevel.poogir.desktop</id>
+    <id>com.github.franklevel.poogie.desktop</id>
     <metadata_license>CC0</metadata_license>
     <project_license>GPL-3.0+</project_license>
     <name>Poogie</name>
-    <summary>Generate secure password easier</summary>
+    <summary>Generate strong password easier</summary>
     <description>
-        <p>Track the virtual currencies in real world currency value with this handy applet</p>
+        <p>Generate strong passwords using few methods</p>
         <ul>
-            <li>Choose which currency and virtual currency to use for tracking</li>
-            <li>Quit anytime with the shortcut Ctrl + Q</li>
-            <li>Move the applet by dragging it from anywhere in the window</li>
-            <li>Stays out of your way in the desktop</li>
+            <li>Choose your generation method and use it</li>
         </ul>
     </description>
     <provides>
@@ -26,12 +23,9 @@
         </screenshot>
     </screenshots>
     <releases>
-        <release version="1.2.0" date="2018-02-01">
+        <release version="0.1.0" date="2018-02-01">
             <description>
-                <p>Release: Minor Payments</p>
-                <ul>
-                    <li>Minor fixes all around.</li>
-                </ul>
+                <p>Release: First release</p>
             </description>
         </release>        
     </releases>
