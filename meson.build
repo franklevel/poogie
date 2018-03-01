@@ -54,5 +54,5 @@ executable(
 meson.add_install_script('meson/post_install.py')
 
 # Add subfolders for Meson to look
-# subdir('data')
+subdir('data')
 # subdir('po')
