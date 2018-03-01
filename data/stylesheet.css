@@ -1,7 +1,6 @@
-@define-color colorPrimary #5b9aff;
+@define-color colorPrimary #1565c0;
 @define-color textColorPrimary #1b2f4f;
 .bigfont{
     font-size: 17px;
-    color: @textColorPrimary;
-    
+    color: @textColorPrimary;    
 }
